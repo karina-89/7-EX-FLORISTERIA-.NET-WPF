@@ -1,0 +1,149 @@
+﻿<Window x:Class="Floristeria.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Floristeria"
+        mc:Ignorable="d"
+        Title="Floristeria" Height="450" Width="800" Icon="Resources/flower.ico" Closing="Window_Closing" WindowStartupLocation="CenterScreen">
+    <Window.Background>
+        <ImageBrush ImageSource="pack://siteoforigin:,,,/Resources/fondo_flores.png" Stretch="UniformToFill"/>
+    </Window.Background>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <DockPanel Grid.Row="0">
+            <Menu DockPanel.Dock="Top" Height="20">
+                <MenuItem Header="Tienda">
+                    <MenuItem Header="Nueva" Click="mnuNuevaTienda_Click" />
+                    <MenuItem Header="Abrir" Click="mnuAbrirTienda_Click" />
+                    <Separator />
+                    <MenuItem Header="Salir" Click="mnuExit_Click" />
+
+                </MenuItem>
+                <MenuItem Header="Añadir">
+                    <MenuItem Header="Arbol" Click="mnuAddArbol_Click" />
+                    <MenuItem Header="Flor" Click="mnuAddFlor_Click" />
+                    <MenuItem Header="Decoración" Click="mnuAddDecoracion_Click" />
+                </MenuItem>
+                <MenuItem Header="Stock" Click="mnuStocks_Click" />
+            </Menu>
+        </DockPanel>
+        <TextBlock Grid.Row="1" Text="MiTienda" HorizontalAlignment="Center" FontSize="38" FontWeight="Bold" Name="txtNombreTienda"></TextBlock>
+        <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto">
+            <StackPanel x:Name="stackInfo" Margin="10">
+
+                <!-- ARBOLES -->
+                <Grid Margin="0, 10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="20" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" Text="Arboles" />
+                    <DataGrid Grid.Row="1" x:Name="dgArboles" AutoGenerateColumns="False" IsReadOnly="True" CanUserSortColumns="False">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" Width="*" />
+                            <DataGridTextColumn Header="Altura" Binding="{Binding Altura}" Width="100" />
+                            <DataGridTextColumn Header="Cantidad" Binding="{Binding Cantidad, StringFormat={}{0:n0}}" Width="100">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType = "TextBlock">
+                                        <Setter Property = "HorizontalAlignment" Value = "Right"></Setter>
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+                            <DataGridTextColumn Header="Precio" Binding="{Binding Precio, StringFormat={}{0:n2}}" Width="100">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType = "TextBlock">
+                                        <Setter Property = "HorizontalAlignment" Value = "Right"></Setter>
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+                            <!--<DataGridTemplateColumn Header="Borrar" Width="50">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Content="Borrar" Command="Delete"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>-->
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+
+                <!-- FLORES -->
+                <Grid Margin="0, 10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="20" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" Text="Flores" />
+                    <DataGrid Grid.Row="1" x:Name="dgFlores" AutoGenerateColumns="False" IsReadOnly="True" CanUserSortColumns="False">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" Width="*" />
+                            <DataGridTextColumn Header="Color" Binding="{Binding Color}" Width="100" />
+                            <DataGridTextColumn Header="Cantidad" Binding="{Binding Cantidad, StringFormat={}{0:n0}}" Width="100">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType = "TextBlock">
+                                        <Setter Property = "HorizontalAlignment" Value = "Right"></Setter>
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+                            <DataGridTextColumn Header="Precio" Binding="{Binding Precio, StringFormat={}{0:n2}}" Width="100">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType = "TextBlock">
+                                        <Setter Property = "HorizontalAlignment" Value = "Right"></Setter>
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+                            <!--<DataGridTemplateColumn Header="Borrar" Width="50">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Content="Borrar" Command="Delete"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>-->
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+
+                <!-- DECORACIONES -->
+                <Grid Margin="0, 10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="20" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" Text="Decoraciones" />
+                    <DataGrid Grid.Row="1" x:Name="dgDecoraciones" AutoGenerateColumns="False" IsReadOnly="True" CanUserSortColumns="False">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" Width="*" />
+                            <DataGridTextColumn Header="Material" Binding="{Binding Material}" Width="100" />
+                            <DataGridTextColumn Header="Cantidad" Binding="{Binding Cantidad, StringFormat={}{0:n0}}" Width="100">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType = "TextBlock">
+                                        <Setter Property = "HorizontalAlignment" Value = "Right"></Setter>
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+                            <DataGridTextColumn Header="Precio" Binding="{Binding Precio, StringFormat={}{0:n2}}" Width="100">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType = "TextBlock">
+                                        <Setter Property = "HorizontalAlignment" Value = "Right"></Setter>
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+                            <!--<DataGridTemplateColumn Header="Borrar" Width="50">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Content="Borrar" Command="Delete"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>-->
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Window>

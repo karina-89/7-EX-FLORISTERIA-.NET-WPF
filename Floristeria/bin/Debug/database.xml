@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Establecimientos>
+    <Establecimiento>
+      <ID>1</ID>
+      <Nombre>El jardin de Silvia</Nombre>
+      <Arboles>
+        <Arbol>
+          <Nombre>Roble</Nombre>
+          <Precio>180</Precio>
+          <Cantidad>1</Cantidad>
+          <Altura>1.8</Altura>
+        </Arbol>
+        <Arbol>
+          <Nombre>Cerezo</Nombre>
+          <Precio>60</Precio>
+          <Cantidad>2</Cantidad>
+          <Altura>1.6</Altura>
+        </Arbol>
+        <Arbol>
+          <Nombre>Naranjo</Nombre>
+          <Precio>80</Precio>
+          <Cantidad>1</Cantidad>
+          <Altura>1.3</Altura>
+        </Arbol>
+      </Arboles>
+      <Flores>
+        <Flor>
+          <Nombre>Narciso</Nombre>
+          <Precio>8</Precio>
+          <Cantidad>2</Cantidad>
+          <Color>Blanco</Color>
+        </Flor>
+        <Flor>
+          <Nombre>Rosa</Nombre>
+          <Precio>6</Precio>
+          <Cantidad>4</Cantidad>
+          <Color>Roja</Color>
+        </Flor>
+      </Flores>
+      <Decoraciones>
+        <Decoracion>
+          <Nombre>Jarrón</Nombre>
+          <Precio>15</Precio>
+          <Cantidad>3</Cantidad>
+          <Material>Plástico</Material>
+        </Decoracion>
+        <Decoracion>
+          <Nombre>Cesta mimbre</Nombre>
+          <Precio>20</Precio>
+          <Cantidad>5</Cantidad>
+          <Material>Madera</Material>
+        </Decoracion>
+      </Decoraciones>
+    </Establecimiento>
+    <Establecimiento>
+      <ID>2</ID>
+      <Nombre>Flores del mediterraneo</Nombre>
+      <Arboles />
+      <Flores />
+      <Decoraciones />
+    </Establecimiento>
+  </Establecimientos>
+</Database>
